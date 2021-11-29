@@ -1269,15 +1269,15 @@ static bool _show_help_special(int key)
             _print_version();
             return true;
         case '@':
-            // MUTE/UNMUTE
+            // MUTE/UNMUTE - USER STORY 2
 
             return true;
         case '|':
-            // RESET SETTINGS
+            // RESET SETTINGS - USER STORY 3
 
             return true;
         case '*':
-            // SAVE
+            // SAVE - USER STORY 4
 
             return true;
         default:
