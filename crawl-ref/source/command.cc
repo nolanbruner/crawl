@@ -661,9 +661,9 @@ static void _add_formatted_help_menu(column_composer &cols)
         "<w>T</w>: Tiles key help\n"
 #endif
         "<w>V</w>: Version information\n"
-        "<w>+</w>: Carter Test\n"
-        "<w>=</w>: Orcs & Trolls\n"
-        "<w>-</w>: Elfs & Drow\n"
+        "<w>@</w>: MUTE/UNMUTE\n"
+        "<w>|</w>: RESET SETTINGS\n"
+        "<w>*</w>: SAVE\n"
         "<w>Home</w>: This screen\n");
 
     // TODO: generate this from the manual somehow
@@ -1224,7 +1224,7 @@ private:
         formatted_string header_text, help_text;
         switch (key)
         {
-            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v': case '+': case '=': case '-':
+            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v': case '@': case '|': case '*':
                 return false;
             default:
                 if (!(page = _get_help_section(key, header_text, help_text, scroll)))
@@ -1268,14 +1268,17 @@ static bool _show_help_special(int key)
         case 'v':
             _print_version();
             return true;
-        case '+':
-            cout << "HELLO WORLD" << endl;
+        case '@':
+            // MUTE/UNMUTE
+
             return true;
-        case '=':
-            cout << "HELLO WORLD" << endl;
+        case '|':
+            // RESET SETTINGS
+
             return true;
-        case '-':
-            cout << "HELLO WORLD" << endl;
+        case '*':
+            // SAVE
+
             return true;
         default:
             return false;
