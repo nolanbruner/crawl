@@ -490,6 +490,11 @@ static void _handle_FAQ()
     return;
 }
 
+
+static void _printTextToScreen(){
+    MessageBox(NULL, "CARTER", "TEST!", MB_ICONERROR | MB_OK);
+}
+
 ////////////////////////////////////////////////////////////////////////////
 
 int show_keyhelp_menu(const vector<formatted_string> &lines)
@@ -661,6 +666,9 @@ static void _add_formatted_help_menu(column_composer &cols)
         "<w>T</w>: Tiles key help\n"
 #endif
         "<w>V</w>: Version information\n"
+        "<w>859</w>: Carter Test\n"
+        "<w>907</w>: Orcs & Trolls\n"
+        "<w>380</w>: Elfs & Drow\n"
         "<w>Home</w>: This screen\n");
 
     // TODO: generate this from the manual somehow
@@ -1264,6 +1272,15 @@ static bool _show_help_special(int key)
             return true;
         case 'v':
             _print_version();
+            return true;
+        case '859':
+            _printTextToScreen();
+            return true;
+        case '907':
+            __printTextToScreen();
+            return true;
+        case '380':
+            _printTextToScreen();
             return true;
         default:
             return false;
