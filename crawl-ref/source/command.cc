@@ -492,7 +492,7 @@ static void _handle_FAQ()
 
 
 static void _printTextToScreen(){
-    MessageBox(NULL, "CARTER", "TEST!", MB_ICONERROR | MB_OK);
+    cout << "HELLO WORLD" << endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -666,9 +666,9 @@ static void _add_formatted_help_menu(column_composer &cols)
         "<w>T</w>: Tiles key help\n"
 #endif
         "<w>V</w>: Version information\n"
-        "<w>859</w>: Carter Test\n"
-        "<w>907</w>: Orcs & Trolls\n"
-        "<w>380</w>: Elfs & Drow\n"
+        "<w>+</w>: Carter Test\n"
+        "<w>=</w>: Orcs & Trolls\n"
+        "<w>-</w>: Elfs & Drow\n"
         "<w>Home</w>: This screen\n");
 
     // TODO: generate this from the manual somehow
@@ -1229,7 +1229,7 @@ private:
         formatted_string header_text, help_text;
         switch (key)
         {
-            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v':
+            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v': case '+': case '=': case '-':
                 return false;
             default:
                 if (!(page = _get_help_section(key, header_text, help_text, scroll)))
@@ -1273,13 +1273,13 @@ static bool _show_help_special(int key)
         case 'v':
             _print_version();
             return true;
-        case '859':
+        case '+':
             _printTextToScreen();
             return true;
-        case '907':
+        case '=':
             __printTextToScreen();
             return true;
-        case '380':
+        case '-':
             _printTextToScreen();
             return true;
         default:
