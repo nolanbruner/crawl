@@ -490,11 +490,6 @@ static void _handle_FAQ()
     return;
 }
 
-
-static void _printTextToScreen(){
-    cout << "HELLO WORLD" << endl;
-}
-
 ////////////////////////////////////////////////////////////////////////////
 
 int show_keyhelp_menu(const vector<formatted_string> &lines)
@@ -1274,13 +1269,13 @@ static bool _show_help_special(int key)
             _print_version();
             return true;
         case '+':
-            _printTextToScreen();
+            cout << "HELLO WORLD" << endl;
             return true;
         case '=':
-            __printTextToScreen();
+            cout << "HELLO WORLD" << endl;
             return true;
         case '-':
-            _printTextToScreen();
+            cout << "HELLO WORLD" << endl;
             return true;
         default:
             return false;
