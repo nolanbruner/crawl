@@ -1292,7 +1292,7 @@ void show_help(int section, string highlight_string)
         return;
     help_popup help(section);
     help.highlight = highlight_string;
-    string key = toalower(help.show());
+    string key = help.show();
     // handle the case where one of the special case help sections is triggered
     // from the help main menu.
     _show_help_special(key);
