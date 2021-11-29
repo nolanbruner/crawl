@@ -520,6 +520,12 @@ static void reset_settings()
 static void save()
 {
     bool save = true;
+    if (save == true){
+        save = false;
+    }
+    else{
+        save = true;
+    }
 
     return;
 }
