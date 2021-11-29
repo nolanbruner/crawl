@@ -661,9 +661,9 @@ static void _add_formatted_help_menu(column_composer &cols)
         "<w>T</w>: Tiles key help\n"
 #endif
         "<w>V</w>: Version information\n"
-        "<w>@</w>: MUTE/UNMUTE\n"
-        "<w>|</w>: RESET SETTINGS\n"
-        "<w>*</w>: SAVE\n"
+        "<w>@@@</w>: MUTE/UNMUTE\n"
+        "<w>|||</w>: RESET SETTINGS\n"
+        "<w>***</w>: SAVE\n"
         "<w>Home</w>: This screen\n");
 
     // TODO: generate this from the manual somehow
@@ -1224,7 +1224,7 @@ private:
         formatted_string header_text, help_text;
         switch (key)
         {
-            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v': case '@': case '|': case '*':
+            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v': case '@@@': case '|||': case '***':
                 return false;
             default:
                 if (!(page = _get_help_section(key, header_text, help_text, scroll)))
@@ -1245,7 +1245,7 @@ private:
     int prev_page{0};
 };
 
-static bool _show_help_special(int key)
+static bool _show_help_special(string key)
 {
     switch (key)
     {
@@ -1268,15 +1268,15 @@ static bool _show_help_special(int key)
         case 'v':
             _print_version();
             return true;
-        case '@':
+        case '@@@':
             // MUTE/UNMUTE - USER STORY 2
 
             return true;
-        case '|':
+        case '|||':
             // RESET SETTINGS - USER STORY 3
 
             return true;
-        case '*':
+        case '***':
             // SAVE - USER STORY 4
 
             return true;
@@ -1292,7 +1292,7 @@ void show_help(int section, string highlight_string)
         return;
     help_popup help(section);
     help.highlight = highlight_string;
-    int key = toalower(help.show());
+    string key = toalower(help.show());
     // handle the case where one of the special case help sections is triggered
     // from the help main menu.
     _show_help_special(key);
