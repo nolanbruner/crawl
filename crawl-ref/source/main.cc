@@ -490,6 +490,7 @@ static void _show_commandline_options_help()
 
     puts("Command line options:");
     puts("  -help                 prints this list of options");
+    puts("  -settings             opens settings menu");
     puts("  -name <string>        character name");
     puts("  -species <arg>        preselect character species (by letter, abbreviation, or name)");
     puts("  -background <arg>     preselect character background (by letter, abbreviation, or name)");
