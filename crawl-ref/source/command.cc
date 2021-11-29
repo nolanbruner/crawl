@@ -490,6 +490,40 @@ static void _handle_FAQ()
     return;
 }
 
+static void mute()
+{
+    bool mute = true;
+    if (mute == true){
+        mute = false;
+    }
+    else{
+        mute = true;
+    }
+
+    return;
+}
+
+static void reset_settings()
+{
+    // Settings = false means that settings are not in default environment
+    bool settings = false;
+    if (settings == true){
+        settings = false;
+    }
+    else{
+        settings = true;
+    }
+
+    return;
+}
+
+static void save()
+{
+    bool save = true;
+
+    return;
+}
+
 ////////////////////////////////////////////////////////////////////////////
 
 int show_keyhelp_menu(const vector<formatted_string> &lines)
@@ -1270,15 +1304,15 @@ static bool _show_help_special(int key)
             return true;
         case '@':
             // MUTE/UNMUTE - USER STORY 2
-
+            mute();
             return true;
         case '|':
             // RESET SETTINGS - USER STORY 3
-
+            reset_settings();
             return true;
         case '*':
             // SAVE - USER STORY 4
-
+            save();
             return true;
         default:
             return false;
