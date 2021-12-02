@@ -704,6 +704,8 @@ static void _add_formatted_help_menu(column_composer &cols)
         "<w>@</w>: MUTE/UNMUTE\n"
         "<w>|</w>: RESET SETTINGS\n"
         "<w>*</w>: SAVE\n"
+        "<w><</w>: Go Upstairs\n"
+        "<w>></w>: GO Downstairs\n"
         "<w>Home</w>: This screen\n");
 
     // TODO: generate this from the manual somehow
@@ -1264,7 +1266,7 @@ private:
         formatted_string header_text, help_text;
         switch (key)
         {
-            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v': case '@': case '|': case '*':
+            case CK_ESCAPE: case ':': case '#': case '/': case 'q': case 'v': case '@': case '|': case '*': case '<': case '>':
                 return false;
             default:
                 if (!(page = _get_help_section(key, header_text, help_text, scroll)))
@@ -1318,6 +1320,14 @@ static bool _show_help_special(int key)
             return true;
         case '*':
             // SAVE - USER STORY 4
+            save();
+            return true;
+        case '<':
+            // Go Upstairs - USER STORY 5
+            save();
+            return true;
+        case '>':
+            // Go Downstairs - USER STORY 6
             save();
             return true;
         default:
